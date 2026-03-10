@@ -10,6 +10,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet">
     <!-- Tailwind 配置 -->
     <script>
+        function resetAndPlaySounds() {
+            const sounds = ['sound1', 'sound2', 'sound3'];
+            sounds.forEach(soundId => {
+                const sound = document.getElementById(soundId);
+                if (sound) {
+                    sound.pause();
+                    sound.currentTime = 0;
+                }
+            });
+            document.getElementById('sound1').play();
+        }
+
         tailwind.config = {
             theme: {
                 extend: {
@@ -449,27 +461,24 @@
         }
     </style>
 </head>
-<body class="bg-bg-dark text-text-primary font-pixel overflow-x-hidden relative" onclick="document.getElementById('dingSound').play();">
+<body class="bg-bg-dark text-text-primary font-pixel overflow-x-hidden relative" onclick="document.getElementById('sound3').play();">
     <!-- 背景特效容器 -->
     <div id="backgroundEffects" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0"></div>
     
     <!-- 音频元素 -->
-    <audio id="dingSound" preload="auto">
-        <source src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3" type="audio/mpeg">
+    <audio id="sound1" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3" type="audio/mpeg">
     </audio>
-    <audio id="dongSound" preload="auto">
-        <source src="https://assets.mixkit.co/sfx/preview/mixkit-drum-bass-hit-221.mp3" type="audio/mpeg">
+    <audio id="sound2" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-complete-or-approved-mission-205.mp3" type="audio/mpeg">
     </audio>
-    <audio id="dingdongSound" preload="auto">
-        <source src="https://assets.mixkit.co/sfx/preview/mixkit-bell-notification-933.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="dongdongSound" preload="auto">
-        <source src="https://assets.mixkit.co/sfx/preview/mixkit-drum-snare-roll-622.mp3" type="audio/mpeg">
+    <audio id="sound3" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-positive-interface-beep-221.mp3" type="audio/mpeg">
     </audio>
     <!-- 顶部导航栏 -->
     <header class="bg-panel-dark px-4 py-3 flex flex-col items-center justify-center">
-        <h1 class="text-pixel-yellow text-2xl pixel-text">Pi像素领地</h1>
-        <p class="text-pixel-yellow text-sm pixel-text mt-1">Pi Pixel Land</p>
+        <h1 onclick="resetAndPlaySounds()" class="text-pixel-yellow text-2xl pixel-text cursor-pointer hover:scale-105 transition-transform">Pi像素领地</h1>
+        <p onclick="resetAndPlaySounds()" class="text-pixel-yellow text-sm pixel-text mt-1 cursor-pointer hover:scale-105 transition-transform">Pi Pixel Land</p>
     </header>
 
 
@@ -501,8 +510,8 @@
             <div class="absolute right-8 top-1/2 transform -translate-y-1/2 w-2/3 flex flex-col gap-8 p-2">
                 <!-- 第一个按钮和圆环 -->
                 <div class="relative flex items-center">
-                    <div onclick="document.getElementById('dingdongSound').play();" class="absolute -left-16 w-12 h-12 rounded-full border-2 border-transparent bg-gradient-to-r from-pixel-yellow to-red-500 animate-pulse shadow-lg shadow-yellow-500/50 ring-4 ring-yellow-500/20 animate-border-pulse-1 cursor-pointer"></div>
-                    <a href="https://pipixellandguangfang.pages.dev/" onclick="document.getElementById('dingdongSound').play();" class="w-full py-4 bg-transparent border-2 border-transparent bg-clip-padding flex items-center justify-center font-bold text-lg hover:bg-white hover:text-bg-dark transition-all duration-300 relative overflow-hidden group">
+                    <div onclick="document.getElementById('sound1').play();" class="absolute -left-16 w-12 h-12 rounded-full border-2 border-transparent bg-gradient-to-r from-pixel-yellow to-red-500 animate-pulse shadow-lg shadow-yellow-500/50 ring-4 ring-yellow-500/20 animate-border-pulse-1 cursor-pointer"></div>
+                    <a href="https://pipixellandguangfang.pages.dev/" onclick="document.getElementById('sound2').play();" class="w-full py-4 bg-transparent border-2 border-transparent bg-clip-padding flex items-center justify-center font-bold text-lg hover:bg-white hover:text-bg-dark transition-all duration-300 relative overflow-hidden group">
                         <span class="relative z-10 text-shadow text-white" style="font-size: 24px;">官 方 公 告   </span>
                         <span class="absolute inset-0 bg-gradient-to-r from-red-500 to-pixel-yellow opacity-70 group-hover:opacity-100 transition-opacity"></span>
                     </a>
@@ -510,8 +519,8 @@
                 
                 <!-- 第二个按钮和圆环 -->
                 <div class="relative flex items-center">
-                    <div onclick="document.getElementById('dingdongSound').play();" class="absolute -left-16 w-12 h-12 rounded-full border-2 border-transparent bg-gradient-to-r from-red-500 via-blue-500 to-purple-500 animate-pulse shadow-lg shadow-red-500/50 ring-4 ring-red-500/20 animate-border-pulse-2 cursor-pointer"></div>
-                    <a href="https://pipixellandgudong.pages.dev/" onclick="document.getElementById('dingdongSound').play();" class="w-full py-4 bg-transparent border-2 border-transparent bg-clip-padding flex items-center justify-center font-bold text-lg hover:bg-white hover:text-bg-dark transition-all duration-300 relative overflow-hidden group">
+                    <div onclick="document.getElementById('sound1').play();" class="absolute -left-16 w-12 h-12 rounded-full border-2 border-transparent bg-gradient-to-r from-red-500 via-blue-500 to-purple-500 animate-pulse shadow-lg shadow-red-500/50 ring-4 ring-red-500/20 animate-border-pulse-2 cursor-pointer"></div>
+                    <a href="https://pipixellandgudong.pages.dev/" onclick="document.getElementById('sound3').play();" class="w-full py-4 bg-transparent border-2 border-transparent bg-clip-padding flex items-center justify-center font-bold text-lg hover:bg-white hover:text-bg-dark transition-all duration-300 relative overflow-hidden group">
                         <span class="relative z-10 text-shadow text-white" style="font-size: 24px;">股 东 招 募   </span>
                         <span class="absolute inset-0 bg-gradient-to-r from-blue-500 to-pixel-green opacity-70 group-hover:opacity-100 transition-opacity"></span>
                     </a>
@@ -519,8 +528,8 @@
                 
                 <!-- 第三个按钮和圆环 -->
                 <div class="relative flex items-center">
-                    <div onclick="document.getElementById('dingdongSound').play();" class="absolute -left-16 w-12 h-12 rounded-full border-2 border-transparent bg-gradient-to-r from-white via-green-500 to-red-500 animate-pulse shadow-lg shadow-white/50 ring-4 ring-white/20 animate-border-pulse-3 cursor-pointer"></div>
-                    <a href="https://pipixelland.pages.dev/" onclick="document.getElementById('dingdongSound').play();" class="w-full py-4 bg-transparent border-2 border-transparent bg-clip-padding flex items-center justify-center font-bold text-lg hover:bg-white hover:text-bg-dark transition-all duration-300 relative overflow-hidden group">
+                    <div onclick="document.getElementById('sound1').play();" class="absolute -left-16 w-12 h-12 rounded-full border-2 border-transparent bg-gradient-to-r from-white via-green-500 to-red-500 animate-pulse shadow-lg shadow-white/50 ring-4 ring-white/20 animate-border-pulse-3 cursor-pointer"></div>
+                    <a href="https://pipixelland.pages.dev/" onclick="document.getElementById('sound1').play();" class="w-full py-4 bg-transparent border-2 border-transparent bg-clip-padding flex items-center justify-center font-bold text-lg hover:bg-white hover:text-bg-dark transition-all duration-300 relative overflow-hidden group">
                         <span class="relative z-10 text-shadow text-white" style="font-size: 24px;">生 态 预 览 </span>
                         <span class="absolute inset-0 bg-gradient-to-r from-pixel-purple via-white via-black to-red-500 opacity-70 group-hover:opacity-100 transition-opacity"></span>
                     </a>
